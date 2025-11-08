@@ -47,8 +47,16 @@ app.use('/api/stats', require('../routes/stats'));
 app.use('/api/admin', require('../routes/admin'));
 app.use('/api/chats', require('../routes/chats'));
 
-// Health check
+// Health check - handle both /api/health and /health
 app.get('/api/health', (req, res) => {
+  res.json({ 
+    status: 'OK', 
+    message: 'Blood Donation API is running',
+    timestamp: new Date().toISOString()
+  });
+});
+
+app.get('/health', (req, res) => {
   res.json({ 
     status: 'OK', 
     message: 'Blood Donation API is running',
@@ -95,5 +103,6 @@ app.use((req, res) => {
 });
 
 // Export for Vercel serverless
+// @vercel/node automatically handles Express apps
 module.exports = app;
 
