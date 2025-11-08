@@ -103,6 +103,6 @@ app.use((req, res) => {
 });
 
 // Export for Vercel serverless
-// @vercel/node automatically handles Express apps
+// Vercel expects the app to be exported directly
 module.exports = app;
 
