@@ -37,8 +37,6 @@ const connectDB = async () => {
     w: 'majority',
     maxPoolSize: 10, // Maintain up to 10 socket connections
     minPoolSize: 1, // Maintain at least 1 socket connection
-    bufferMaxEntries: 0, // Disable mongoose buffering
-    bufferCommands: false, // Disable mongoose buffering
   }).then(() => {
     isConnected = true;
     console.log('✅ MongoDB Connected Successfully');
